@@ -1,0 +1,12 @@
+--- squid3-3.4.8.origin/debian/rules   2015-01-28 12:59:07.000000000 +0100
++++ squid3-3.4.8.patched/debian/rules   2015-07-08 18:37:25.579181872 +0200
+@@ -43,7 +43,9 @@
+        --with-pidfile=/var/run/squid3.pid \
+        --with-filedescriptors=65536 \
+        --with-large-files \
+-       --with-default-user=proxy
++       --with-default-user=proxy \
++        --enable-ssl \
++        --with-open-ssl="/etc/ssl/openssl.cnf"
+ 
+ BUILDINFO := $(shell lsb_release -si 2>/dev/null)

@@ -9,7 +9,7 @@ RUN apt-get -q update \
     && apt-get source -y squid3 \
     && apt-get build-dep -y squid3 \
     && cd squid3-3* \
-    && patch debian/rules </tmp/rules.patch \
+    && patch -p1 /tmp/rules.patch \
     && debuild -us -uc \
     && cd .. \
     && dpkg -i squid3-common*.deb squid3_3*.deb \

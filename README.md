@@ -9,5 +9,5 @@ docker build -t <tag> .
 ## Run
 
 ```bash
-docker run --name squid3 -v <squid3 config dir>:/etc/squid3 
+docker run --name squid3 -v <squid3 config dir>:/etc/squid3 confirm/squid3
 ```

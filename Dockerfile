@@ -12,7 +12,7 @@ RUN apt-get -q update \
     && patch -p1 /tmp/rules.patch \
     && debuild -us -uc \
     && cd .. \
-    && dpkg -i squid3-common*.deb squid3_3*.deb \
+    && dpkg -i squid3-*.deb \
     && apt-get install -fy \
     && apt-get -y autoremove \
     && apt-get -y clean \

@@ -5,14 +5,14 @@ ADD rules.patch /tmp/rules.patch
 ADD apt-src.list /etc/apt/sources.list.d/src.list
 WORKDIR /usr/src
 RUN apt-get -q update \
-    && apt-get install -y openssl devscripts build-essential libssl-dev \
+    && apt-get install -y openssl devscripts build-essential libssl-dev logrotate \
     && apt-get source -y squid3 \
     && apt-get build-dep -y squid3 \
     && cd squid3-3* \
     && patch -p1 /tmp/rules.patch \
     && debuild -us -uc \
     && cd .. \
-    && dpkg -i squid3-*.deb \
+    && dpkg -i squid3_3*.deb squid3-common*.deb \
     && apt-get install -fy \
     && apt-get -y autoremove \
     && apt-get -y clean \

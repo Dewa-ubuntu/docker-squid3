@@ -1,7 +1,7 @@
 FROM debian:8
 MAINTAINER confirm IT solutions, dbarton
 
-ADD rules.patch /tmp/rules.patch
+ADD ssl.patch /tmp/ssl.patch
 ADD apt-src.list /etc/apt/sources.list.d/src.list
 WORKDIR /usr/src
 RUN apt-get -q update \
@@ -9,7 +9,7 @@ RUN apt-get -q update \
     && apt-get source -y squid3 \
     && apt-get build-dep -y squid3 \
     && cd squid3-3* \
-    && patch -p1 /tmp/rules.patch \
+    && patch -p1 -i /tmp/ssl.patch \
     && debuild -us -uc \
     && apt-get install -y logrotate squid-langpack \
     && cd .. \

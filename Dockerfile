@@ -23,7 +23,7 @@ RUN apt-get -q update \
 
 VOLUME ['/etc/squid3']
 
-EXPOSE 3128 80 443
+EXPOSE 3128 8443
 
 USER proxy
 

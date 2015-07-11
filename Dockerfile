@@ -25,7 +25,5 @@ VOLUME ['/etc/squid3']
 
 EXPOSE 3128 8443
 
-USER proxy
-
 WORKDIR /etc/squid3
 CMD squid3 -N

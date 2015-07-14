@@ -23,7 +23,7 @@ RUN apt-get -q update \
 
 VOLUME ['/etc/squid3']
 
-EXPOSE 3128 8443
+EXPOSE 3128 80 443
 
 WORKDIR /etc/squid3
 CMD squid3 -N
